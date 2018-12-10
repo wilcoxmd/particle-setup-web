@@ -18,7 +18,11 @@ class MainNav extends Component {
         <Navbar.Header>
           <Navbar.Brand>
             <Link to="/">
-              <img src={logo} style={{ width: "200px" }} />
+              <img
+                src={logo}
+                style={{ width: "200px" }}
+                alt="setup need image"
+              />
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle />

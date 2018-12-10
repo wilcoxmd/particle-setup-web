@@ -34,7 +34,7 @@
 
 .setup-option-box:hover {
   /* background-color: green; */
-  transform: translate(0px, -3px);
+  transform: translate(0px, -2px);
 }
 
 .setup-option-img {

@@ -1,0 +1,15 @@
+.next-button {
+  width: 50%;
+  height: 40px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  background-color: #29394b;
+  color: white;
+  font-weight: bold;
+  transition: transform 0.25s;
+}
+
+.next-button:hover {
+  background-color: #3e4d5d;
+  transform: translate(0px, -3px);
+}
