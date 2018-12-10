@@ -1,3 +1,21 @@
+# Web Based Particle Device Setup
+
+This project is intended to provide a web based setup for [Particle](https://www.particle.io/) IoT devices.
+
+**This project is currently under work and not ready for use. Check back for periodic updates.**
+Latest Update: initial commit includes landing page with basic page navigation. Next to include are components for respective setup processes.
+
+This project allows someone to configure a new or existing Particle device using their web browser. Particle provides great example applications for iOS and Android development, but not currently for a web based setup. I needed to have a web based option to use, so decided to start one up. The user interface is modeled off of Particle's own setup application so should feel similar. It's built using [React](https://reactjs.org/) and [react-bootstrap](https://github.com/react-bootstrap/react-bootstrap).
+
+The goal for this application will be a way to easily setup and conifgure developer or personal devices, and people can add their own custom settings (e.g. product specific paramaters) for their various products.
+
+Details for getting started are located below.
+
+## Getting Set Up
+
+After downloading or cloning, to get started run:
+`npm install`
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

@@ -4,7 +4,9 @@
   "private": true,
   "dependencies": {
     "react": "^16.6.3",
+    "react-bootstrap": "^0.32.4",
     "react-dom": "^16.6.3",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1"
   },
   "scripts": {
@@ -21,5 +23,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "bootstrap": "^3.3.7",
+    "reactstrap": "^6.5.0"
+  }
 }
