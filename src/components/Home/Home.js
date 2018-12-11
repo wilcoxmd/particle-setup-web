@@ -20,7 +20,7 @@ class Home extends Component {
           </Row>
           <Row>
             <Col xs={12} md={4} mdOffset={2}>
-              <Link to="/setup/">
+              <Link to="/setup-needs/">
                 <SetupOption
                   location="primary"
                   title="Set up New Device"
@@ -30,7 +30,7 @@ class Home extends Component {
               </Link>
             </Col>
             <Col xs={12} md={4}>
-              <Link to="/get-id/">
+              <Link to="/getid-needs/">
                 <SetupOption
                   location="secondary"
                   title="Get Device ID"
@@ -38,7 +38,7 @@ class Home extends Component {
                   imageUrl="https://goo.gl/XvaqYr"
                 />
               </Link>
-              <Link to="/new-wifi/">
+              <Link to="/configwifi-needs/">
                 <SetupOption
                   location="secondary"
                   title="Update Device Wi-Fi"

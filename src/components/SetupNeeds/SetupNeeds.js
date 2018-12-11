@@ -1,11 +1,22 @@
-import React, { Component } from "react";
+import React from "react";
 import NeedItem from "../NeedItem";
 import Grid from "react-bootstrap/lib/Grid";
 import Row from "react-bootstrap/lib/Row";
 import Col from "react-bootstrap/lib/Col";
 import NextButton from "../NextButton";
 
-class SetupNeeds extends Component {
+class SetupNeeds extends React.Component {
+  constructor(props) {
+    super(props);
+    this.getNextPath = this.getNextPath.bind(this);
+  }
+
+  getNextPath() {
+    const currentPath = this.props.location.pathname;
+    const hyphenIndex = currentPath.indexOf("-");
+    return currentPath.slice(0, hyphenIndex);
+  }
+
   render() {
     return (
       <Grid>
@@ -38,7 +49,7 @@ class SetupNeeds extends Component {
         </Row>
         <Row>
           <Col xs={12}>
-            <NextButton />
+            <NextButton nextPath={this.getNextPath()} />
           </Col>
         </Row>
       </Grid>
