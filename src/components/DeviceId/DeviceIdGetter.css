@@ -1,4 +1,4 @@
-.next-button {
+.get-id-btn {
   width: 50%;
   height: 40px;
   margin-top: 25px;
@@ -10,7 +10,12 @@
   outline: none;
 }
 
-.next-button:hover {
+.get-id-btn:hover {
   background-color: #3e4d5d;
   transform: translate(0px, -3px);
+}
+
+code {
+  color: #29394b;
+  background: none;
 }

@@ -1,8 +1,14 @@
 import React from "react";
+import { DeviceIdGetterContainer } from "../DeviceId/DeviceIdGetterContainer.js";
 
 class GetId extends React.Component {
   render() {
-    return <h1>This is the page to get a device ID</h1>;
+    return (
+      <div>
+        <h1>Let's get your device id:</h1>
+        <DeviceIdGetterContainer />
+      </div>
+    );
   }
 }
 
