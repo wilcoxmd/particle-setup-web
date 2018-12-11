@@ -25,7 +25,7 @@ class MainNav extends Component {
               />
             </Link>
           </Navbar.Brand>
-          <Navbar.Toggle />
+          {/* <Navbar.Toggle /> uncomment if you want a toggler*/}
         </Navbar.Header>
       </Navbar>
     );
