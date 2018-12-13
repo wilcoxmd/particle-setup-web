@@ -1,6 +1,6 @@
 import React from "react";
 import DeviceIdGetter from "./DeviceIdGetter";
-import "./DeviceIdGetter.css";
+import { ParticleService } from "../../services/ParticleService";
 
 export class DeviceIdGetterContainer extends React.Component {
   constructor(props) {
@@ -15,38 +15,18 @@ export class DeviceIdGetterContainer extends React.Component {
   async handleClick() {
     this.setState({ header: "your device id:" });
     this.setState({ id: "fetching id..." });
+
     try {
-      const response = await fetch("http://192.168.0.1/device-id", {
-        method: "GET",
-        dataType: "JSON"
+      const deviceid = await ParticleService.fetchDeviceId();
+      this.setState({
+        id: deviceid
       });
-      const data = await response.json();
-      console.log(`Received Data: ${data}`);
-      //response format: {"id":"280020008761353136383631","c":"1"}
-      this.setState({ id: data.id });
-      await this.disconnectFromDevice();
+      await ParticleService.disconnectFromDevice();
     } catch (err) {
       this.setState({
         id:
           "Hmm...Couldn't find your device. Did you connect to it's Wi-Fi network?"
       });
-      console.log(err);
-    }
-  }
-
-  async disconnectFromDevice() {
-    console.log("disconnecting from device...");
-    try {
-      const response = await fetch("http://192.168.0.1/connect-ap", {
-        method: "POST",
-        body: JSON.stringify({ idx: 0 }),
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
-      });
-      const data = await response.json();
-      console.log("successfully disconnected");
-    } catch (err) {
       console.log(err);
     }
   }
