@@ -3,7 +3,7 @@ import Grid from "react-bootstrap/lib/Grid";
 import Row from "react-bootstrap/lib/Row";
 import Col from "react-bootstrap/lib/Col";
 import { Link } from "react-router-dom";
-import SetupOption from "../SetupOption";
+import SetupOption from "../../components/SetupOption";
 
 class Home extends Component {
   render() {

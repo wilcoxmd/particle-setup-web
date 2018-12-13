@@ -22,7 +22,7 @@ export class DeviceIdGetterContainer extends React.Component {
       });
       const data = await response.json();
       console.log(`Received Data: ${data}`);
-      //response format: {"id":"280020001247353136383631","c":"1"}
+      //response format: {"id":"280020008761353136383631","c":"1"}
       this.setState({ id: data.id });
       await this.disconnectFromDevice();
     } catch (err) {
@@ -42,7 +42,6 @@ export class DeviceIdGetterContainer extends React.Component {
         body: JSON.stringify({ idx: 0 }),
         headers: {
           "Content-Type": "application/x-www-form-urlencoded"
-          // "Content-Type": "application/x-www-form-urlencoded",
         }
       });
       const data = await response.json();

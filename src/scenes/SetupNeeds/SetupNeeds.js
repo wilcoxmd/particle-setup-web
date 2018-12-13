@@ -1,9 +1,9 @@
 import React from "react";
-import NeedItem from "../NeedItem";
+import NeedItem from "../../components/NeedItem";
 import Grid from "react-bootstrap/lib/Grid";
 import Row from "react-bootstrap/lib/Row";
 import Col from "react-bootstrap/lib/Col";
-import NextButton from "../NextButton";
+import NextButton from "../../components/NextButton";
 
 class SetupNeeds extends React.Component {
   constructor(props) {

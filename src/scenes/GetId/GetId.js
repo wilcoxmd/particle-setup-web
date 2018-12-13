@@ -1,5 +1,5 @@
 import React from "react";
-import { DeviceIdGetterContainer } from "../DeviceId/DeviceIdGetterContainer.js";
+import { DeviceIdGetterContainer } from "../../components/DeviceIdGetter/DeviceIdGetterContainer";
 
 class GetId extends React.Component {
   render() {
