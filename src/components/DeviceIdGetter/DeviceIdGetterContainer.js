@@ -21,7 +21,7 @@ export class DeviceIdGetterContainer extends React.Component {
       this.setState({
         id: deviceid
       });
-      await ParticleDeviceService.disconnectFromDevice();
+      await ParticleDeviceService.connectToNetwork();
     } catch (err) {
       this.setState({
         id:

@@ -26,9 +26,7 @@ class WifiScanList extends React.Component {
                   return (
                     <li key={index} className="network-result">
                       <WifiNetwork
-                        ssid={network.ssid}
-                        security={network.sec}
-                        rssi={network.rssi}
+                        network={network}
                       />
                     </li>
                   );

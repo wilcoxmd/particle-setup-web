@@ -1,3 +1,5 @@
+const NodeRSA = require('node-rsa');
+
 const deviceUrl = "http://192.168.0.1";
 
 class ParticleDeviceService {
@@ -17,7 +19,7 @@ class ParticleDeviceService {
     }
   }
 
-  static async disconnectFromDevice() {
+  static async connectToNetwork() {
     try {
       const response = await fetch(deviceUrl + "/connect-ap", {
         method: "POST",
@@ -27,6 +29,7 @@ class ParticleDeviceService {
         }
       });
       const data = await response.json();
+      return data;
     } catch (err) {
       console.log(err);
     }
@@ -54,7 +57,8 @@ class ParticleDeviceService {
 
   static async getPublicKey() {
     try {
-      const response = await fetch(deviceUrl + "/scan-ap", {
+      //console.log("getting public key...");
+      const response = await fetch(deviceUrl + "/public-key", {
         method: "GET",
         dataType: "JSON"
       });
@@ -66,18 +70,43 @@ class ParticleDeviceService {
     }
   }
 
-  static encryptPassword(publicKey, password) {}
+  static encryptPassword(key, password) {
+    //console.log("encrypting passkey...");
+    const keyBuf = new Buffer(key, 'hex');
+    //console.log(keyBuf);
 
-  static async connectDeviceToNetwork(network) {
+    const rsa = new NodeRSA(keyBuf.slice(22), 'pkcs1-public-der', {
+      encryptionScheme: 'pkcs1'
+    });
+
+    const encryptedPass = rsa.encrypt(password, 'hex');
+    return encryptedPass;
+    //console.log("encrypted password: " + encryptedPass);
+  }
+
+  static async configureAP(network, password) {
     try {
+      const key = await this.getPublicKey();
+      const encryptedPass = this.encryptPassword(key, password);
+      
+      const setupInfo = JSON.stringify({
+        idx: 0,
+        ssid: network.ssid,
+        sec: network.sec,
+        ch: network.ch,
+        pwd: encryptedPass
+      });
+
       const response = await fetch(deviceUrl + "/configure-ap", {
         method: "POST",
-        body: JSON.stringify({ idx: 0 }),
+        body: setupInfo,
         headers: {
           "Content-Type": "application/x-www-form-urlencoded"
         }
       });
       const data = await response.json();
+      return data;
+      console.log(data);
     } catch (err) {
       console.log(err);
     }
