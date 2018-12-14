@@ -1,6 +1,6 @@
 import React from "react";
 import DeviceIdGetter from "./DeviceIdGetter";
-import { ParticleService } from "../../services/ParticleService";
+import ParticleDeviceService from "../../services/ParticleDeviceService";
 
 export class DeviceIdGetterContainer extends React.Component {
   constructor(props) {
@@ -17,11 +17,11 @@ export class DeviceIdGetterContainer extends React.Component {
     this.setState({ id: "fetching id..." });
 
     try {
-      const deviceid = await ParticleService.fetchDeviceId();
+      const deviceid = await ParticleDeviceService.fetchDeviceId();
       this.setState({
         id: deviceid
       });
-      await ParticleService.disconnectFromDevice();
+      await ParticleDeviceService.disconnectFromDevice();
     } catch (err) {
       this.setState({
         id:

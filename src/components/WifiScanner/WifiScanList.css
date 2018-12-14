@@ -1,0 +1,27 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.scanResults {
+  background-color: #d8d8d8;
+  border-radius: 5px;
+  margin-top: 25px;
+  padding: 10px;
+}
+
+.network-result {
+  /* border: 1px solid purple; */
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 15px;
+  border-radius: 5px;
+}
+
+/* .network-result:hover {
+  background-color: #e8e8e8;
+  cursor: pointer;
+} */
