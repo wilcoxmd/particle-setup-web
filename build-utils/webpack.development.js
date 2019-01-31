@@ -1,7 +1,4 @@
 module.exports = (mode, platform) => {
-  console.log("\n\n\nin dev mode!!!!");
-  console.log(`args = ${mode},${platform}` + "\n\n\n");
-
   let serveFile;
   if (platform === "web") {
     serveFile = "index.html";
