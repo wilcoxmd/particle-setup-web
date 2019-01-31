@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const webpack = require("webpack");
 const webpackMerge = require("webpack-merge");
+const HtmlWebpackInlineSourcePlugin = require("html-webpack-inline-source-plugin");
 
 const modeConfig = (env, platform) =>
   require(`./build-utils/webpack.${env}`)(env, platform);
@@ -23,12 +24,15 @@ module.exports = (env = { mode: "production", platform: "web" }) => {
         new HtmlWebpackPlugin({
           filename: "local-setup-file.html",
           template: "./public/local-setup-file.html",
-          chunks: ["local"]
+          chunks: ["local"],
+          inlineSource: ".(js|css)$"
         }),
+        new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin),
         new HtmlWebpackPlugin({
           filename: "index.html",
           template: "./public/index.html",
-          chunks: ["web"]
+          chunks: ["web"],
+          minify: true
         })
       ],
       module: {
