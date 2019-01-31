@@ -51,6 +51,17 @@ module.exports = (env = { mode: "production", platform: "web" }) => {
             use: {
               loader: "babel-loader"
             }
+          },
+          {
+            test: /\.(png|jpg|jpeg|gif)$/i,
+            use: [
+              {
+                loader: "url-loader",
+                options: {
+                  limit: 8192
+                }
+              }
+            ]
           }
         ]
       }
