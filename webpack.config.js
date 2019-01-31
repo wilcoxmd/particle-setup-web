@@ -47,10 +47,6 @@ module.exports = (env = { mode: "production", platform: "web" }) => {
             use: {
               loader: "babel-loader"
             }
-          },
-          {
-            test: /\.css$/,
-            use: ["style-loader", "css-loader"]
           }
         ]
       }

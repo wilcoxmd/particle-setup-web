@@ -10,6 +10,14 @@ module.exports = (mode, platform) => {
   }
 
   return {
+    module: {
+      rules: [
+        {
+          test: /\.css$/,
+          use: ["style-loader", "css-loader"]
+        }
+      ]
+    },
     devtool: "inline-source-map",
     devServer: {
       port: 3000,
