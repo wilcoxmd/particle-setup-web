@@ -2,9 +2,16 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const webpack = require("webpack");
 
-module.exports = ({ mode } = { mode: "production" }) => {
+module.exports = (env = { mode: "production", platform: "web" }) => {
+  let serveFile;
+  if (env.platform === "web") {
+    serveFile = "index.html";
+  } else if (env.platform === "local") {
+    serveFile = "local.html";
+  }
+
   return {
-    mode,
+    mode: env.mode,
     entry: {
       web: "./src/web-app/index.js",
       local: "./src/local-app/index.js"
@@ -16,7 +23,7 @@ module.exports = ({ mode } = { mode: "production" }) => {
     plugins: [
       new webpack.ProgressPlugin(),
       new HtmlWebpackPlugin({
-        filename: "local.html",
+        filename: "local-setup-file.html",
         template: "./public/local-setup-file.html",
         chunks: ["local"]
       }),
@@ -48,6 +55,10 @@ module.exports = ({ mode } = { mode: "production" }) => {
           use: ["style-loader", "css-loader"]
         }
       ]
+    },
+    devServer: {
+      port: 3000,
+      index: serveFile
     }
   };
 };

@@ -20,3 +20,19 @@ After downloading or cloning, to get started run:
 This project contains directories for both the web portion of this setup, as well as the local file that users will need to download. This local file is necessary in order to provide a secure setup experience. Particle devices can only be setup over basic HTTP requests (no SSL), which can't be allowed from from pages using HTTPS. By serving a login and entry page over SSL, then allowing users to download a file to complete setup, we can make sure the setup process is both successful and secure.
 
 Webpack is used to compile all assets, and the config file is located in the top level directory of this project. You can feel free to edit this according to your needs (e.g. changing output file names).
+
+## Development
+
+There is a development server available curtosy of [webpack-dev-server](https://github.com/webpack/webpack-dev-server). There are also scripts included to use this server to run based on the local app or the web based part of the app.
+
+To start a dev server running the local app, run:
+
+```
+npm run dev:local
+```
+
+To start a dev server running the web app, run:
+
+```
+npm run dev:web
+```
