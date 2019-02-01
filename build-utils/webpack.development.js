@@ -28,7 +28,9 @@ module.exports = (mode, platform) => {
     devtool: "inline-source-map",
     devServer: {
       port: 3000,
-      index: serveFile
+      index: serveFile,
+      open: true,
+      overlay: true
     }
   };
 };
