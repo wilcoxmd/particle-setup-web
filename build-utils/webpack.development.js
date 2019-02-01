@@ -30,7 +30,10 @@ module.exports = (mode, platform) => {
       port: 3000,
       index: serveFile,
       open: true,
-      overlay: true
+      overlay: true,
+      historyApiFallback: {
+        rewrites: [{ from: /\/download/, to: "/download" }]
+      }
     }
   };
 };
