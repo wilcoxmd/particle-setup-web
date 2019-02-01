@@ -1,6 +1,6 @@
 {
-  "short_name": "webpack-split-test",
-  "name": "Webpack Split Test",
+  "short_name": "particle-setup-web",
+  "name": "Particle Setup - Web",
   "icons": [
     {
       "src": "favicon.ico",
