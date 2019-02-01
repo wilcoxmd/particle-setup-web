@@ -3,6 +3,7 @@ const path = require("path");
 const webpack = require("webpack");
 const webpackMerge = require("webpack-merge");
 const HtmlWebpackInlineSourcePlugin = require("html-webpack-inline-source-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const modeConfig = (env, platform) =>
   require(`./build-utils/webpack.${env}`)(env, platform);
@@ -33,7 +34,11 @@ module.exports = (env = { mode: "production", platform: "web" }) => {
           template: "./public/index.html",
           chunks: ["web"],
           minify: true
-        })
+        }),
+        new CopyWebpackPlugin([
+          // relative path is from src
+          { from: "./public/favicon.ico" }
+        ])
       ],
       module: {
         rules: [
