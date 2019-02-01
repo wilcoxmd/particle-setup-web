@@ -4,6 +4,7 @@ const webpack = require("webpack");
 const webpackMerge = require("webpack-merge");
 const HtmlWebpackInlineSourcePlugin = require("html-webpack-inline-source-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 
 const modeConfig = (env, platform) =>
   require(`./build-utils/webpack.${env}`)(env, platform);
@@ -11,8 +12,7 @@ const modeConfig = (env, platform) =>
 module.exports = (
   env = {
     mode: "production",
-    platform: "web",
-    API_URL: "http://localhost:8080"
+    platform: "web"
   }
 ) => {
   return webpackMerge(
@@ -27,8 +27,8 @@ module.exports = (
         filename: "[name].js"
       },
       plugins: [
-        new webpack.DefinePlugin({
-          "process.env.API_URL": JSON.stringify(env.API_URL)
+        new Dotenv({
+          path: `./${env.mode}.env` // load this now instead of the ones in '.env'
         }),
         new webpack.ProgressPlugin(),
         new HtmlWebpackPlugin({

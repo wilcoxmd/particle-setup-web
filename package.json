@@ -7,9 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack",
     "build": "webpack --env.mode=production",
-    "dev:local": "webpack-dev-server --env.mode=development --env.platform=local --env.API_URL=http://localhost:8080 --hot --open",
-    "dev:web": "webpack-dev-server --env.mode=development --env.platform=web --env.API_URL=http://localhost:8080 --hot --open",
-    "prod": "webpack --env.mode=production --env.API_URL=http://localhost:8080 && node server.js"
+    "dev:local": "webpack-dev-server --env.mode=development --env.platform=local --hot --open",
+    "dev:web": "webpack-dev-server --env.mode=development --env.platform=web --hot --open",
+    "prod": "webpack --env.mode=production && node server.js"
   },
   "author": "",
   "license": "ISC",
@@ -28,6 +28,7 @@
     "clean-webpack-plugin": "^1.0.1",
     "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^2.1.0",
+    "dotenv-webpack": "^1.7.0",
     "html-loader": "^0.5.5",
     "html-minifier": "^3.5.21",
     "html-webpack-inline-source-plugin": "1.0.0-beta.2",
