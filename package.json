@@ -7,14 +7,15 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack",
     "build": "webpack --env.mode=production",
-    "dev:local": "webpack-dev-server --env.mode=development --env.platform=local --hot --open",
-    "dev:web": "webpack-dev-server --env.mode=development --env.platform=web --hot --open",
+    "dev:local": "webpack-dev-server --env.mode=development --env.platform=local --env.API_URL=http://localhost:8080 --hot --open",
+    "dev:web": "webpack-dev-server --env.mode=development --env.platform=web --env.API_URL=http://localhost:8080 --hot --open",
     "prod": "webpack --env.mode=production && node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
+    "file-saver": "^2.0.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
   },
@@ -23,6 +24,7 @@
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
+    "babel-polyfill": "^6.26.0",
     "clean-webpack-plugin": "^1.0.1",
     "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^2.1.0",

@@ -21,7 +21,9 @@ app.get("/testlol", (req, res, next) => {
 });
 
 app.get("/download", (req, res, next) => {
+  console.log("got file request");
   fs.readFile("./build/local-setup-file.html", "utf8", function(err, data) {
+    console.log(data);
     let response = {};
     response.fileContents = data;
     res.send(response);

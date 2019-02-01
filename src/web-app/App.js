@@ -1,8 +1,14 @@
 import React from "react";
 import "./App.css";
+import DownloadButton from "./components/DownloadButton";
 
 export default class App extends React.Component {
   render() {
-    return <p>Hello Web World</p>;
+    return (
+      <div>
+        <p>Hello Web World</p>
+        <DownloadButton />
+      </div>
+    );
   }
 }

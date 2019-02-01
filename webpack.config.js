@@ -8,19 +8,28 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const modeConfig = (env, platform) =>
   require(`./build-utils/webpack.${env}`)(env, platform);
 
-module.exports = (env = { mode: "production", platform: "web" }) => {
+module.exports = (
+  env = {
+    mode: "production",
+    platform: "web",
+    API_URL: "http://localhost:8080"
+  }
+) => {
   return webpackMerge(
     {
       mode: env.mode,
       entry: {
-        web: "./src/web-app/index.js",
-        local: "./src/local-app/index.js"
+        web: ["babel-polyfill", "./src/web-app/index.js"],
+        local: ["babel-polyfill", "./src/local-app/index.js"]
       },
       output: {
         path: path.resolve(__dirname, "build"),
         filename: "[name].js"
       },
       plugins: [
+        new webpack.DefinePlugin({
+          "process.env.API_URL": JSON.stringify(env.API_URL)
+        }),
         new webpack.ProgressPlugin(),
         new HtmlWebpackPlugin({
           filename: "local-setup-file.html",
