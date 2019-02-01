@@ -23,8 +23,18 @@ module.exports = (mode, production) => {
     module: {
       rules: [
         {
-          test: /\.css$/,
-          use: [MiniCssExtractPlugin.loader, "css-loader"]
+          test: /\.css$/ || /\.module.css$/,
+          use: [
+            MiniCssExtractPlugin.loader,
+            {
+              loader: "css-loader",
+              options: {
+                importLoaders: 1,
+                modules: true,
+                localIdentName: "[path][name]__[local]--[hash:base64:5]"
+              }
+            }
+          ]
         }
       ]
     }

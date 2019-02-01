@@ -10,8 +10,18 @@ module.exports = (mode, platform) => {
     module: {
       rules: [
         {
-          test: /\.css$/,
-          use: ["style-loader", "css-loader"]
+          test: /\.css$/ || /\.module.css$/,
+          use: [
+            { loader: "style-loader" },
+            {
+              loader: "css-loader",
+              options: {
+                importLoaders: 1,
+                modules: true,
+                localIdentName: "[path][name]__[local]--[hash:base64:5]"
+              }
+            }
+          ]
         }
       ]
     },
