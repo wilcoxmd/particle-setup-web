@@ -9,7 +9,7 @@
     "build": "webpack --env.mode=production",
     "dev:local": "webpack-dev-server --env.mode=development --env.platform=local --env.API_URL=http://localhost:8080 --hot --open",
     "dev:web": "webpack-dev-server --env.mode=development --env.platform=web --env.API_URL=http://localhost:8080 --hot --open",
-    "prod": "webpack --env.mode=production && node server.js"
+    "prod": "webpack --env.mode=production --env.API_URL=http://localhost:8080 && node server.js"
   },
   "author": "",
   "license": "ISC",

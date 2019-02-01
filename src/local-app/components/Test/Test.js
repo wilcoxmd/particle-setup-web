@@ -5,7 +5,7 @@ export default class Test extends React.Component {
   render() {
     return (
       <div className={styles.testdiv}>
-        <p className={styles.text}>This is another test component</p>
+        <p className={styles.text}>TOKENPLACEHOLDER</p>
       </div>
     );
   }
