@@ -10,7 +10,7 @@ The tricky part of doing setup with a web browser is balancing security with the
 
 This repo is meant to provide a starting project structure for anyone looking to take this setup style on, and includes directories for both the web and local app. [Webpack](https://webpack.js.org/) is used to compile both applications into a single build folder, as well as compile the entire local applicaiton into a single HTML file.
 
-There is also a pre-written server (`server.js`) that can be used to serve the application and allow download of the complied local app.
+There is also a pre-written server (`server.js`) that can be used to serve the production built application and allow download of the complied local app. It serves out of the build folder, so make sure you have built the application by running `npm run build` before trying to run it. Once the build is complete you can run the server using a `node server.js` command.
 
 ## Getting Set Up
 
