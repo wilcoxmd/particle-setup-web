@@ -1,4 +1,4 @@
-# Web Based Particle Device Setup
+# particle-setup-web
 
 A starting place for web based setup of [Particle](https://www.particle.io/) Wi-Fi devices. Built using [React](https://reactjs.org/).
 
