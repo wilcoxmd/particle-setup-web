@@ -2,8 +2,6 @@
 
 A starting place for web based setup of [Particle](https://www.particle.io/) Wi-Fi devices. Built using [React](https://reactjs.org/).
 
----
-
 ## Basic Info
 
 This project provides application template for someone to configure new or existing Particle devices using their web browser. Particle provides great example applications for iOS and Android development, but not currently for a web based setup.
