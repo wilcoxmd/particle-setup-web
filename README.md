@@ -4,7 +4,7 @@ A starting place for web based setup of [Particle](https://www.particle.io/) Wi-
 
 ## Basic Info
 
-This project provides application template for someone to configure new or existing Particle devices using their web browser. Particle provides great example applications for iOS and Android development, but I haven't been able to find anything for a web browser based setup.
+This project provides an application template for someone to configure new or existing Particle devices using their web browser. Particle provides great example applications for iOS and Android development, but I haven't been able to find anything for a web browser based setup.
 
 The tricky part of doing setup with a web browser is balancing security with the fact that Particle Wi-Fi devices can only send and receive information over HTTP (no SSL). This means we need a two part application-- one that can connect and authenticate a user securely, and another app that can take the user's credentials and be downloaded and run as a local file.
 
