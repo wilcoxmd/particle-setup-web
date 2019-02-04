@@ -63,7 +63,7 @@ To start a dev server running the web app, run:
 npm run dev:web
 ```
 
-## Produciton
+## Production
 
 You can build the entire project (local and web apps) into a single /build folder by running
 
