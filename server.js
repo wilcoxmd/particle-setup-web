@@ -16,10 +16,6 @@ app.use(function(req, res, next) {
 
 app.use(express.static(path.join(__dirname, "build")));
 
-app.get("/testlol", (req, res, next) => {
-  res.send(`lol it works lol`);
-});
-
 app.get("/download", (req, res, next) => {
   fs.readFile("./build/local-setup-file.html", "utf8", function(err, data) {
     let response = {};
