@@ -11,7 +11,7 @@ export default class DownloadButton extends React.Component {
       let fileContents = data.fileContents;
       const newString = fileContents.replace(
         /TOKENPLACEHOLDER/,
-        "Your token here"
+        "<Your tokens here>"
       );
       const dataString = `original data: ${data.fileContents}`;
 
