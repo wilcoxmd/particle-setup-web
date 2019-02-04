@@ -5,7 +5,7 @@ export default class DownloadButton extends React.Component {
   async handleClick() {
     console.log("click!");
     try {
-      const response = await fetch(`${process.env.API_URL}/download`);
+      const response = await fetch(`${process.env.SERVER}/download`);
       const data = await response.json();
 
       let fileContents = data.fileContents;
