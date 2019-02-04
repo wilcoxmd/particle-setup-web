@@ -8,11 +8,11 @@ A starting place for web based setup of [Particle](https://www.particle.io/) Wi-
 
 This project provides application template for someone to configure new or existing Particle devices using their web browser. Particle provides great example applications for iOS and Android development, but not currently for a web based setup.
 
-The tricky part of doing setup with a web browser is balancing security with the fact that Particle Wi-Fi devices can only send and receive information over HTTP (no SSL). This means we need a two part application-- one that can connect and authenticate a user over SSL, and another app that a user can download and run as a local file.
+The tricky part of doing setup with a web browser is balancing security with the fact that Particle Wi-Fi devices can only send and receive information over HTTP (no SSL). This means we need a two part application-- one that can connect and authenticate a user securely, and another app that can take the user's credentials and be downloaded and run as a local file.
 
 This repo is meant to provide a starting project structure for anyone looking to take this setup style on, and includes directories for both the web and local app. [Webpack](https://webpack.js.org/) is used to compile both applications into a single build folder, as well as compile the entire local applicaiton into a single HTML file.
 
-There is also a pre-written server (`server.js`) that can be used to server the application and allow download of the complied local application.
+There is also a pre-written server (`server.js`) that can be used to serve the application and allow download of the complied local app.
 
 ## Getting Set Up
 
@@ -22,7 +22,7 @@ After downloading or cloning, enter the directory and run:
 npm install
 ```
 
-You'll also need to setup .env files to configure any necessary enviornment variables. To get started, create one file called `production.env` and another called `developement.env`. Inside both, paste:
+You'll also need to setup .env files to configure any necessary enviornment variables. To get started, create one file called `production.env` and another called `development.env`. Inside both, paste:
 
 ```
 SERVER=http://localhost:8080
@@ -45,7 +45,9 @@ const newString = fileContents.replace(
 );
 ```
 
-You'll also need to create more placeholders in the local application whereever you decide they are relevant. You can see an example of this in the local app's `TestComponent`
+You'll also need to create more placeholders in the local application wherever you decide they are relevant. You can see an example of this in the local app's `TestComponent`.
+
+Finally, as you develop your local application, make sure you encode any images as base64 and include the encoded URI as the image source attribute. This will allow them to be inserted directly into the localfile. The build process should handle this automatically for any small images you include (< 8 Kb), but you'll want to encode any large images yourself with an online converter.
 
 ## Development
 
@@ -78,3 +80,7 @@ npm run prod
 ```
 
 The app will be running at http://localhost:8080.
+
+## Good Luck!
+
+Good luck building your Particle powered products. If you'd like to contribute to this repo, please open a PR and I'll happily review it.
