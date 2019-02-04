@@ -9,11 +9,11 @@ export default class DownloadButton extends React.Component {
       const data = await response.json();
 
       let fileContents = data.fileContents;
-      const newString = fileContents.replace(/TOKENPLACEHOLDER/, "Donovan");
+      const newString = fileContents.replace(
+        /TOKENPLACEHOLDER/,
+        "Your token here"
+      );
       const dataString = `original data: ${data.fileContents}`;
-
-      //   console.log(dataString);
-      //   console.log(newString);
 
       var blob = new Blob([newString], {
         type: "text/plain;charset=utf-8"
